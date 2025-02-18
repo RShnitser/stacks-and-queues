@@ -3,6 +3,41 @@
 // - Look into the private keyword. Make sure we can initialize a stack of any input type.
 // - Initialize the stack in the constructor. Remember, we may need to utilize other data structures here to create the behavior we are looking for.
 
+export class Stack<T>{
+    private data : T[];
+
+    constructor(){
+        this.data = [];
+    }
+
+    push(e: T){
+        this.data.push(e);
+    }
+
+    pop(): T | null{
+        return this.data.pop() ?? null;
+    }
+
+    peek(): T | null{
+        if(this.data.length === 0){
+            return null;
+        }
+        return this.data[this.data.length - 1];
+    }
+
+    isEmpty(): boolean{
+        return this.data.length === 0;
+    }
+
+    size(): number{
+        return this.data.length;
+    }
+
+    print(){
+        console.log(this.data.join(" | "));
+    }
+}
+
 // Step 2: Implement push method
 // - Create a method to add an element to the stack.
 // - Add the element to the end of the array (top of the stack).
@@ -25,12 +60,12 @@
 // - Print elements in order, separated by " | " with the top of the stack on the right.
 
 // Uncomment The Code Below to See If It Works! Feel free to write more code to test and examine the functionality of the stack.
-// const stack = new Stack<number>(); // Create a stack that stores numbers
-// stack.push(10);
-// stack.push(20);
-// stack.push(30);
-// stack.print(); // Output: 10 | 20 | 30
-// console.log(stack.pop()); // 30
-// console.log(stack.peek()); // 20
-// console.log(stack.size()); // 2
-// console.log(stack.isEmpty()); // false
+const stack = new Stack<number>(); // Create a stack that stores numbers
+stack.push(10);
+stack.push(20);
+stack.push(30);
+stack.print(); // Output: 10 | 20 | 30
+console.log(stack.pop()); // 30
+console.log(stack.peek()); // 20
+console.log(stack.size()); // 2
+console.log(stack.isEmpty()); // false
